@@ -1,0 +1,5 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "jsPlugins": ["./scripts/lint/lint.mjs"],
+  "rules": { "sei/style-data-only": "error" }
+}

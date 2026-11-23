@@ -1,0 +1,77 @@
+.home {
+  position: absolute;
+  z-index: var(--z-grid);
+  top: var(--shelf-top);
+  left: var(--side-pad);
+  right: var(--side-pad);
+  transform: translateY(0);
+  transition: transform var(--t-med) var(--ease);
+  will-change: transform;
+}
+
+.scrolled {
+  transform: translateY(
+    calc(
+      var(--focus-row-y) - var(--shelf-top) - var(--shelf-pad-y) - var(--scroll-row) *
+        var(--row-pitch)
+    )
+  );
+}
+
+.home::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--shelf-pad-y) * -1);
+  left: calc(var(--shelf-pad-x) * -1);
+  right: calc(var(--shelf-pad-x) * -1);
+  height: calc(var(--tile-h) + 2 * var(--shelf-pad-y));
+  border-radius: var(--shelf-radius);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight);
+}
+
+.slot {
+  --dock-offset: 0px;
+  position: absolute;
+  transform: translate(
+    calc(var(--col) * var(--col-pitch)),
+    calc(var(--row) * var(--row-pitch) + var(--dock-offset))
+  );
+  transition: transform var(--t-med) var(--ease);
+}
+
+.belowDock {
+  --dock-offset: var(--shelf-pad-y);
+}
+
+/* Each slot's transform is a stacking context, so the slot itself rises above its neighbors. */
+.raised {
+  z-index: 1;
+}
+
+.menu {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* The dock sits at the bottom of the screen, so its menus open upward, from its edge. */
+.above {
+  bottom: 100%;
+  margin-bottom: var(--shelf-pad-y);
+}
+
+/* Clears the tile's name, which grows with the focused tile from its center (Tile .title). */
+.below {
+  top: 50%;
+  margin-top: calc(
+    (var(--tile-h) / 2 + var(--tile-title-gap) + var(--tile-title-h)) * var(--focus-scale) +
+      var(--space-1)
+  );
+}
+
+.hidden {
+  visibility: hidden;
+}

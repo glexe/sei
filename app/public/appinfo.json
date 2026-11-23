@@ -1,0 +1,16 @@
+{
+  "id": "com.webos.app.home",
+  "version": "99.0.0",
+  "vendor": "glexe",
+  "type": "web",
+  "main": "index.html",
+  "title": "Home",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "resolution": "1920x1080",
+  "visible": false,
+  "noSplashOnLaunch": true,
+  "disableBackHistoryAPI": true,
+  "appCategory": ["home"],
+  "trustLevel": "trusted"
+}

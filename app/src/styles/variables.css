@@ -1,0 +1,106 @@
+:root {
+  --screen-w: 1920px;
+  --screen-h: 1080px;
+  /* From the screen's top and bottom edges to the top bar and the player's controls. */
+  --edge-y: 56px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  --type-title: 64px;
+  --type-headline: 48px;
+  --type-body: 36px;
+  --type-callout: 30px;
+  --type-caption: 24px;
+  --type-micro: 20px;
+
+  --radius-s: 12px;
+  --radius-m: 16px;
+  /* Concentric with --radius-m items inside a --space-3 padding. */
+  --radius-l: calc(var(--radius-m) + var(--space-3));
+  --radius-full: 999px;
+  --preview-radius: 110px;
+
+  --z-hero: 0;
+  --z-grid: 1;
+  --z-top-bar: 2;
+  --z-screen: 3;
+  --z-toast: 4;
+  --z-player: 5;
+
+  /* Counts the components' code shares; variables.test.ts keeps them equal. */
+  --cols: 6;
+  --list-rows: 9;
+  --track-menu-items: 8;
+
+  --tile-w: 252px;
+  --tile-h: 152px;
+  --tile-gap: 36px;
+  --row-gap: 76px;
+  --col-pitch: calc(var(--tile-w) + var(--tile-gap));
+  --row-pitch: calc(var(--tile-h) + var(--row-gap));
+  /* What the columns leave on each side. */
+  --side-pad: calc(
+    (var(--screen-w) - var(--cols) * var(--tile-w) - (var(--cols) - 1) * var(--tile-gap)) / 2
+  );
+  --tile-radius: 26px;
+  --tile-title-gap: 12px;
+  --tile-title-h: 32px;
+  --focus-scale: 1.2;
+  --focus-scale-row: 1.03;
+  /* Where the focused row lands once the grid scrolls below the top row. */
+  --focus-row-y: 330px;
+
+  /* Between a focused tile and the dock's edge; the fraction keeps the paddings whole. */
+  --shelf-clearance: 14.8px;
+  --shelf-pad-x: calc(var(--tile-w) * (var(--focus-scale) - 1) / 2 + var(--shelf-clearance));
+  --shelf-pad-y: calc(var(--tile-h) * (var(--focus-scale) - 1) / 2 + var(--shelf-clearance));
+  --shelf-radius: calc(var(--tile-radius) * var(--focus-scale) + var(--shelf-clearance));
+  /* How much of the second row shows under the dock. */
+  --peek: 50px;
+  --shelf-top: calc(var(--screen-h) - var(--peek) - var(--shelf-pad-y) - var(--row-pitch));
+
+  --bg: #000;
+  --text: #fff;
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --tile-fallback: #2b2e36;
+
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 100%);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --pill: rgba(18, 18, 22, 0.45);
+  --focus-bg: #e8e8ea;
+  --focus-text: #111;
+  --focus-text-muted: rgba(0, 0, 0, 0.55);
+  --scrim: rgba(0, 0, 0, 0.7);
+  --control: rgba(40, 40, 44, 0.85);
+  --control-focused: rgba(70, 70, 76, 0.95);
+  --panel: rgba(40, 40, 44, 0.95);
+  --track: rgba(255, 255, 255, 0.22);
+  --track-fill: rgba(255, 255, 255, 0.85);
+
+  --settings-bg: #1c1c1f;
+  --list-row-h: 68px;
+  --list-row-gap: 14px;
+  --list-row-pitch: calc(var(--list-row-h) + var(--list-row-gap));
+  --row-bg: rgba(255, 255, 255, 0.07);
+  --switch-off: rgba(120, 120, 128, 0.4);
+  --switch-on: #34c759;
+  --destructive: #ff453a;
+  --destructive-on-light: #d70015;
+  --destructive-fill: #ff3b30;
+
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+
+  --font: 'LG Smart UI', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+}

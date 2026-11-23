@@ -1,0 +1,8 @@
+.stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--screen-w);
+  height: var(--screen-h);
+  overflow: hidden;
+}

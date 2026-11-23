@@ -1,0 +1,14 @@
+.toast {
+  position: absolute;
+  z-index: var(--z-toast);
+  left: 50%;
+  bottom: 64px;
+  width: max-content;
+  max-width: 1200px;
+  transform: translateX(-50%);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-l);
+  background: var(--panel);
+  font-size: var(--type-callout);
+  text-align: center;
+}

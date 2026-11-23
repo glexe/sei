@@ -1,0 +1,5 @@
+{
+  "id": "com.glexe.sei.service",
+  "description": "Backend for Sei: lists, launches and uninstalls apps, lists USB files",
+  "services": [{ "name": "com.glexe.sei.service" }]
+}

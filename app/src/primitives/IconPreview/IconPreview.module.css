@@ -1,0 +1,38 @@
+.preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #6b6f78 0%, #3c3f46 100%);
+  color: var(--text);
+}
+
+.icon {
+  width: 62%;
+  height: 62%;
+}
+
+.dimmed {
+  opacity: 0.35;
+}
+
+.bar {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 11%;
+  height: 12px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: var(--track);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--track-fill);
+  transform: scaleX(var(--progress));
+  transform-origin: left center;
+}

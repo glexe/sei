@@ -1,0 +1,41 @@
+{
+  "name": "sei",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "wallpapers": "sh scripts/wallpapers/wallpapers.sh",
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit -p . && tsc -p service",
+    "lint": "oxlint app/src service tv scripts vite.config.ts && stylelint \"app/src/**/*.css\"",
+    "format": "oxfmt app/src service tv scripts vite.config.ts",
+    "format:check": "oxfmt --check app/src service tv scripts vite.config.ts",
+    "check": "npm run typecheck && npm run compiler && npm run test && npm run lint && npm run format:check",
+    "package": "ares-package tv/host service -o dist",
+    "install:service": "npm run package && ares-install -d tv dist/com.glexe.sei_${npm_package_version}_all.ipk && npm run elevate",
+    "elevate": "ssh root@${TV_HOST:?set TV_HOST to the TV IP} /media/developer/apps/usr/palm/services/org.webosbrew.hbchannel.service/elevate-service com.glexe.sei.service && ssh root@${TV_HOST} 'pkill -f com.glexe.sei.service || true'",
+    "install:home": "sh scripts/home/home.sh install",
+    "remove:home": "sh scripts/home/home.sh remove",
+    "deploy": "npm run build && npm run install:home",
+    "compiler": "node scripts/compiler/compiler.mjs",
+    "test": "vitest run",
+    "icon": "sh scripts/icon/icon.sh"
+  },
+  "dependencies": {
+    "preact": "^11.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.13",
+    "@preact/preset-vite": "^2.10.6",
+    "@types/node": "^22.20.5",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "oxfmt": "^0.77.0",
+    "oxlint": "^1.92.0",
+    "stylelint": "^18.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  },
+  "license": "MIT",
+  "version": "0.9.0"
+}

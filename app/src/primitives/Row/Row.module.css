@@ -1,0 +1,83 @@
+.row {
+  display: flex;
+  align-items: center;
+  height: var(--list-row-h);
+  margin-bottom: var(--list-row-gap);
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-s);
+  background: var(--row-bg);
+  font-size: var(--type-body);
+  font-weight: 500;
+  transition: transform var(--t-fast) var(--ease);
+}
+
+/* Virtualized lists place rows by slot instead of flow. */
+.placed {
+  position: absolute;
+  top: calc(var(--slot) * var(--list-row-pitch));
+  left: 0;
+  right: 0;
+}
+
+.icon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  margin-right: var(--space-4);
+  opacity: 0.85;
+}
+
+.icon.dimmed {
+  opacity: 0.3;
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value {
+  flex: none;
+  max-width: 50%;
+  margin-left: var(--space-5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-muted);
+}
+
+.check {
+  width: 14px;
+  height: 28px;
+  margin: 0 var(--space-2) var(--space-2) 0;
+  border-right: 5px solid currentColor;
+  border-bottom: 5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.chevron {
+  width: 18px;
+  height: 18px;
+  margin: 0 var(--space-2) 0 var(--space-4);
+  border-top: 4px solid var(--text-muted);
+  border-right: 4px solid var(--text-muted);
+  transform: rotate(45deg);
+}
+
+.focused {
+  background: var(--focus-bg);
+  color: var(--focus-text);
+  transform: scale(var(--focus-scale-row));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.focused .value {
+  color: var(--focus-text-muted);
+}
+
+.focused .chevron {
+  border-color: var(--focus-text-muted);
+}

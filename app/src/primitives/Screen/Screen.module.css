@@ -1,0 +1,12 @@
+.screen {
+  /* The side new content comes from; Enter reads it. */
+  --enter-x: 80px;
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-screen);
+  background: var(--settings-bg);
+}
+
+.back {
+  --enter-x: -80px;
+}

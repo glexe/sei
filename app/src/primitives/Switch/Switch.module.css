@@ -1,0 +1,43 @@
+.switch {
+  --w: 76px;
+  --h: 44px;
+  --inset: 4px;
+  --knob: calc(var(--h) - 2 * var(--inset));
+  position: relative;
+  flex: none;
+  width: var(--w);
+  height: var(--h);
+  margin-left: var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--switch-off);
+}
+
+/* The on color fades in as a layer: color transitions are off limits on the TV GPU. */
+.fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--switch-on);
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+}
+
+.knob {
+  position: absolute;
+  top: var(--inset);
+  left: var(--inset);
+  width: var(--knob);
+  height: var(--knob);
+  border-radius: 50%;
+  background: var(--text);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.on .fill {
+  opacity: 1;
+}
+
+.on .knob {
+  transform: translateX(calc(var(--w) - var(--knob) - 2 * var(--inset)));
+}

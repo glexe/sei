@@ -1,0 +1,24 @@
+.topBar {
+  position: absolute;
+  z-index: var(--z-top-bar);
+  top: var(--edge-y);
+  left: var(--side-pad);
+  right: var(--side-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  transition: opacity var(--t-med) var(--ease);
+}
+
+.faded {
+  opacity: 0;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.hidden {
+  visibility: hidden;
+}

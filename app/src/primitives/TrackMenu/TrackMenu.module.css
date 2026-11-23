@@ -1,0 +1,60 @@
+.menu {
+  --item-h: 60px;
+  min-width: 336px;
+  max-width: 616px;
+}
+
+.viewport {
+  max-height: calc(var(--track-menu-items) * var(--item-h));
+  overflow: hidden;
+}
+
+.items {
+  transform: translateY(calc(var(--start) * var(--item-h) * -1));
+  transition: transform var(--t-med) var(--ease);
+}
+
+.title {
+  margin: var(--space-2) var(--space-4);
+  font-size: var(--type-caption);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  height: var(--item-h);
+  padding: 0 var(--space-5) 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-m);
+  background: transparent;
+  color: var(--text);
+  font-size: var(--type-callout);
+  text-align: left;
+}
+
+.focused {
+  background: var(--focus-bg);
+  color: var(--focus-text);
+}
+
+.check {
+  display: flex;
+  flex: none;
+  width: 32px;
+  justify-content: center;
+}
+
+.checkIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

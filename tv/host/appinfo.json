@@ -1,0 +1,10 @@
+{
+  "id": "com.glexe.sei",
+  "version": "0.9.0",
+  "vendor": "glexe",
+  "type": "web",
+  "main": "index.html",
+  "title": "Sei service",
+  "icon": "icon.png",
+  "visible": false
+}

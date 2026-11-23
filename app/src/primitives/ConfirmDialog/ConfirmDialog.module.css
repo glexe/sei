@@ -1,0 +1,58 @@
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 var(--side-pad);
+  text-align: center;
+}
+
+.title {
+  max-width: 1200px;
+  margin: 0;
+  font-size: var(--type-headline);
+  font-weight: 600;
+}
+
+.text {
+  max-width: 1200px;
+  margin: var(--space-8) 0 var(--space-16);
+  font-size: var(--type-callout);
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 560px;
+}
+
+.button {
+  height: 80px;
+  border: 0;
+  border-radius: var(--radius-m);
+  background: var(--row-bg);
+  color: var(--text);
+  font-size: var(--type-body);
+  font-weight: 500;
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.destructive {
+  color: var(--destructive);
+}
+
+/* After .destructive so the focused colors win. */
+.focused {
+  background: var(--focus-bg);
+  color: var(--focus-text);
+  transform: scale(1.06);
+}
+
+.destructive.focused {
+  background: var(--destructive-fill);
+  color: var(--text);
+}
