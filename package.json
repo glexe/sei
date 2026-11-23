@@ -11,15 +11,15 @@
     "format": "oxfmt app/src service tv scripts vite.config.ts",
     "format:check": "oxfmt --check app/src service tv scripts vite.config.ts",
     "check": "npm run typecheck && npm run compiler && npm run test && npm run lint && npm run format:check",
-    "package": "ares-package tv/host service -o dist",
-    "install:service": "npm run package && ares-install -d tv dist/com.glexe.sei_${npm_package_version}_all.ipk && npm run elevate",
-    "elevate": "ssh root@${TV_HOST:?set TV_HOST to the TV IP} /media/developer/apps/usr/palm/services/org.webosbrew.hbchannel.service/elevate-service com.glexe.sei.service && ssh root@${TV_HOST} 'pkill -f com.glexe.sei.service || true'",
-    "install:home": "sh scripts/home/home.sh install",
-    "remove:home": "sh scripts/home/home.sh remove",
+    "package": "sh scripts/release/package.sh",
+    "install:service": "npm run package && sh scripts/install/install.sh \"${TV_HOST:?set TV_HOST to the TV IP}\" service",
+    "install:home": "sh scripts/install/install.sh \"${TV_HOST:?set TV_HOST to the TV IP}\" home",
+    "remove:home": "sh scripts/install/install.sh \"${TV_HOST:?set TV_HOST to the TV IP}\" remove",
     "deploy": "npm run build && npm run install:home",
     "compiler": "node scripts/compiler/compiler.mjs",
     "test": "vitest run",
-    "icon": "sh scripts/icon/icon.sh"
+    "icon": "sh scripts/icon/icon.sh",
+    "release": "sh scripts/release/release.sh"
   },
   "dependencies": {
     "preact": "^11.2.0"

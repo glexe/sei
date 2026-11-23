@@ -8,7 +8,7 @@ const APP_INSTALLER = 'luna://com.webos.appInstallService';
 // LG's detector of HDMI devices: it recognizes them by SPD and CEC and downloads their brands' logos.
 const BRAND_LOGOS = 'luna://com.webos.service.ics/blaster/getBrandLogo';
 const BRAND_LOGOS_MS = 2000;
-// The launcher is installed as the system Home app (scripts/home/home.sh).
+// The launcher is installed as the system Home app (scripts/install).
 const HOME_ID = 'com.webos.app.home';
 const APP_DIR = '/media/system/apps/usr/palm/applications/' + HOME_ID;
 const CACHE_DIR = path.join(APP_DIR, 'cache');

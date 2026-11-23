@@ -20,7 +20,7 @@ Rules for anyone changing this repository, people and AI agents alike.
 ## Structure
 
 - Every component, hook and lib module lives in its own folder named after it: `components/Tile/Tile.tsx`, `hooks/useApps/useApps.ts`, `lib/files/files.ts`.
-- `primitives/` holds components that know nothing about apps, files or settings (`Switch`, `ContextMenu`, `ConfirmDialog`, `List`, `Row`, `ListScreen`, `Panel`, `Pill`); `components/` holds the launcher's own screens and widgets. `primitives` never imports from `components`.
+- `primitives/` holds components that know nothing about apps, files or settings (`Switch`, `ContextMenu`, `ConfirmDialog`, `Enter`, `List`, `Row`, `ListScreen`, `Panel`, `Pill`, `Screen`); `components/` holds the launcher's own screens and widgets. `primitives` never imports from `components`.
 - A hook used by only one component lives inside it: `components/Player/hooks/useAutoHide/useAutoHide.ts`, re-exported from `components/Player/hooks/index.ts` and imported as `./hooks`. Only hooks shared by several components live in `src/hooks`.
 - **Types** (including `Props`) go into `types.ts` next to the file; **constants** go into `constants.ts` next to the file. Values computed from other values and mutable module state stay in the file.
 - Exception: icons live flat in `app/src/icons`, one hand-written JSX file per icon (`Gear.tsx`) sharing `types.ts`. Take the SVG from Phosphor and keep a single `<path fill="currentColor" d="…" />` in a 256×256 viewBox.

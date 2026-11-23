@@ -6,41 +6,55 @@
 
 ![Sei home screen on an LG OLED C3](docs/home.jpg)
 
-An ad-free home screen for rooted LG webOS TVs. Tested on LG OLED C3, webOS 11.2.
+An ad-free home screen for rooted LG webOS TVs.
 
-Requires root and [Homebrew Channel](https://github.com/webosbrew/webos-homebrew-channel) with SSH. Use at your own risk.
+| | |
+| --- | --- |
+| ![Wallpaper settings](docs/wallpapers.jpg) | ![Files](docs/files.jpg) |
 
 ## Features
 
 - Every app on the TV in one grid, with a dock row. Hold OK to move or delete an app.
+- HDMI inputs show the logo of the connected device.
 - Files: browse USB storage, play video in a built-in player with resume, watched marks and track selection.
-- Wallpapers, weather, date and time, preferred audio and subtitle languages.
+- Wallpapers: photos, colors and gradients. Weather, date and time.
 - 26 languages, following the TV by default.
 - No background processes. No ads.
 
-## Setup
+## Requirements
+
+- A rooted TV with [Homebrew Channel](https://github.com/webosbrew/webos-homebrew-channel) and its SSH server on:
+  `ssh root@<TV_IP>` has to work.
+- webOS 25 or newer. Tested on one TV, an LG OLED C3 with webOS 11.2 (platform version).
+
+Use at your own risk. Firmware updates can remove root, so keep automatic updates off; if LG Home comes back after one,
+install Sei again.
+
+## Install
+
+From macOS or Linux:
 
 ```bash
-npm install -g @webos-tools/cli
-ssh-copy-id root@<TV_IP>
-ares-setup-device -a tv -i "host=<TV_IP>" -i "port=22" -i "username=root" -i "privatekey=id_ed25519" -i "default=true"
-
-npm install
-export TV_HOST=<TV_IP>
-npm run install:service   # once, and after service changes
-npm run deploy            # build and install as Home
+curl -L https://github.com/glexe/sei/releases/latest/download/sei.tar.gz | tar -xz
+sh sei/install.sh <TV_IP>
 ```
 
-Set **Power On Screen** to **Home** in the TV settings.
+Reboot the TV when it asks, and set **Power On Screen** to **Home** in the TV settings. To update, run it again.
 
-To remove: `npm run remove:home`, then reboot. LG Home returns.
+To remove: `sh sei/install.sh <TV_IP> remove`, then reboot. LG Home returns. A small hidden package, Sei service, stays
+behind: uninstalling any app makes webOS erase the local data of all of them.
 
 ## Development
 
 ```bash
-npm run dev       # browser preview with mock data, http://localhost:5173
-npm run test      # unit tests
-npm run check     # types, React Compiler coverage, tests, lint, format
+npm install
+npm run dev               # browser preview with mock data, http://localhost:5173
+npm run check             # types, React Compiler coverage, tests, lint, format
+
+export TV_HOST=<TV_IP>
+npm run deploy            # build and install the home screen
+npm run install:service   # after service changes; needs npm install -g @webos-tools/cli
+npm run release           # dist/sei.tar.gz, what the installer downloads
 ```
 
 The layout is a fixed 1920×1080. In the browser, use the DevTools device toolbar at that size with **Fit to window**.
@@ -91,9 +105,14 @@ app/src/
   icons/        Phosphor icons as JSX
 service/        root Node service
 tv/host/        stub package that carries the service
-scripts/        Home installer, wallpaper sync, icon, compiler check, lint rule
+scripts/        installer, release, wallpaper sync, icon, compiler check, lint rule
 docs/           screenshots
 ```
+
+## Translations
+
+English is the original; the other 25 languages are machine translations no native speaker has reviewed. Corrections are
+welcome: each language is one file in [`app/src/lib/i18n/locales`](app/src/lib/i18n/locales).
 
 ## License
 

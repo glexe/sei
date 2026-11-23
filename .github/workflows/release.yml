@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm install -g @webos-tools/cli@3.2.6
+      - run: npm run check
+      - run: npm run release
+      - run: gh release create "$GITHUB_REF_NAME" dist/sei.tar.gz --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
