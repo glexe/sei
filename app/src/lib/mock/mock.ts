@@ -38,6 +38,9 @@ export function mockCall(uri: string, params: Record<string, unknown>): LunaResp
   if (method === 'listApps') return { launchPoints: launchPoints() };
   if (method === 'listStorages') return { storages: STORAGES };
   if (method === 'listDir') return { entries: dir(String(params.path)) };
+  if (method === 'getInfo') return { version: '0.9.0', root: true };
+  if (method === 'getSystemInfo') return { modelName: 'OLED65C3PUA', sdkVersion: '11.2.0' };
+  if (method === 'getstatus') return { wifi: { state: 'connected', ipAddress: '192.168.1.20' } };
   if (method === 'getState') return { state: {} };
   if (method === 'readHistory') return { history: {} };
   return { returnValue: true };

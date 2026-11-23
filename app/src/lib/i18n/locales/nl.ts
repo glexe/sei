@@ -29,6 +29,15 @@ export const nl: Locale = {
       showWeekday: 'Dag van de week tonen',
       showDate: 'Datum tonen',
     },
+    about: {
+      title: 'Over',
+      version: 'Versie',
+      service: 'Service',
+      notRunning: 'Niet actief',
+      noRoot: 'Geen roottoegang',
+      tv: 'Tv',
+      ip: 'IP-adres',
+    },
     wallpaper: {
       title: 'Achtergrond',
       pictures: 'Afbeeldingen',

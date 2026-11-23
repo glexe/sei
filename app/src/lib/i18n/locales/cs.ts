@@ -29,6 +29,15 @@ export const cs: Locale = {
       showWeekday: 'Zobrazit den v týdnu',
       showDate: 'Zobrazit datum',
     },
+    about: {
+      title: 'O aplikaci',
+      version: 'Verze',
+      service: 'Služba',
+      notRunning: 'Neběží',
+      noRoot: 'Bez oprávnění root',
+      tv: 'Televizor',
+      ip: 'IP adresa',
+    },
     wallpaper: {
       title: 'Tapeta',
       pictures: 'Obrázky',

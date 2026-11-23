@@ -29,6 +29,15 @@ export const uk: Locale = {
       showWeekday: 'Показувати день тижня',
       showDate: 'Показувати дату',
     },
+    about: {
+      title: 'Про програму',
+      version: 'Версія',
+      service: 'Служба',
+      notRunning: 'Не запущено',
+      noRoot: 'Немає прав root',
+      tv: 'Телевізор',
+      ip: 'IP-адреса',
+    },
     wallpaper: {
       title: 'Шпалери',
       pictures: 'Зображення',

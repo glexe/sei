@@ -29,6 +29,15 @@ export const sv: Locale = {
       showWeekday: 'Visa veckodag',
       showDate: 'Visa datum',
     },
+    about: {
+      title: 'Om',
+      version: 'Version',
+      service: 'Tjänst',
+      notRunning: 'Körs inte',
+      noRoot: 'Ingen rootåtkomst',
+      tv: 'TV',
+      ip: 'IP-adress',
+    },
     wallpaper: {
       title: 'Bakgrund',
       pictures: 'Bilder',

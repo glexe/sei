@@ -29,6 +29,15 @@ export const hu: Locale = {
       showWeekday: 'A hét napjának megjelenítése',
       showDate: 'Dátum megjelenítése',
     },
+    about: {
+      title: 'Névjegy',
+      version: 'Verzió',
+      service: 'Szolgáltatás',
+      notRunning: 'Nem fut',
+      noRoot: 'Nincs root-hozzáférés',
+      tv: 'Tévé',
+      ip: 'IP-cím',
+    },
     wallpaper: {
       title: 'Háttérkép',
       pictures: 'Képek',

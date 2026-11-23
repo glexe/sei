@@ -29,6 +29,15 @@ export const ro: Locale = {
       showWeekday: 'Afișează ziua săptămânii',
       showDate: 'Afișează data',
     },
+    about: {
+      title: 'Despre',
+      version: 'Versiune',
+      service: 'Serviciu',
+      notRunning: 'Nu rulează',
+      noRoot: 'Fără acces root',
+      tv: 'Televizor',
+      ip: 'Adresă IP',
+    },
     wallpaper: {
       title: 'Imagine de fundal',
       pictures: 'Imagini',

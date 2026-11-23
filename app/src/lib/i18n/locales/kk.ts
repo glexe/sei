@@ -29,6 +29,15 @@ export const kk: Locale = {
       showWeekday: 'Апта күнін көрсету',
       showDate: 'Күнді көрсету',
     },
+    about: {
+      title: 'Қолданба туралы',
+      version: 'Нұсқасы',
+      service: 'Қызмет',
+      notRunning: 'Іске қосылмаған',
+      noRoot: 'Root рұқсаты жоқ',
+      tv: 'Теледидар',
+      ip: 'IP мекенжайы',
+    },
     wallpaper: {
       title: 'Тұсқағаз',
       pictures: 'Суреттер',

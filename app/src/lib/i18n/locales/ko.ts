@@ -29,6 +29,15 @@ export const ko: Locale = {
       showWeekday: '요일 표시',
       showDate: '날짜 표시',
     },
+    about: {
+      title: '정보',
+      version: '버전',
+      service: '서비스',
+      notRunning: '실행 중이 아님',
+      noRoot: '루트 권한 없음',
+      tv: 'TV',
+      ip: 'IP 주소',
+    },
     wallpaper: {
       title: '배경화면',
       pictures: '사진',

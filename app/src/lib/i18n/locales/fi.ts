@@ -29,6 +29,15 @@ export const fi: Locale = {
       showWeekday: 'Näytä viikonpäivä',
       showDate: 'Näytä päivämäärä',
     },
+    about: {
+      title: 'Tietoja',
+      version: 'Versio',
+      service: 'Palvelu',
+      notRunning: 'Ei käynnissä',
+      noRoot: 'Ei root-oikeuksia',
+      tv: 'TV',
+      ip: 'IP-osoite',
+    },
     wallpaper: {
       title: 'Taustakuva',
       pictures: 'Kuvat',

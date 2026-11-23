@@ -29,6 +29,15 @@ export const no: Locale = {
       showWeekday: 'Vis ukedag',
       showDate: 'Vis dato',
     },
+    about: {
+      title: 'Om',
+      version: 'Versjon',
+      service: 'Tjeneste',
+      notRunning: 'Kjører ikke',
+      noRoot: 'Ingen root-tilgang',
+      tv: 'TV',
+      ip: 'IP-adresse',
+    },
     wallpaper: {
       title: 'Bakgrunn',
       pictures: 'Bilder',

@@ -29,6 +29,15 @@ export const hi: Locale = {
       showWeekday: 'सप्ताह का दिन दिखाएँ',
       showDate: 'दिनांक दिखाएँ',
     },
+    about: {
+      title: 'परिचय',
+      version: 'संस्करण',
+      service: 'सेवा',
+      notRunning: 'चालू नहीं है',
+      noRoot: 'रूट एक्सेस नहीं',
+      tv: 'टीवी',
+      ip: 'IP पता',
+    },
     wallpaper: {
       title: 'वॉलपेपर',
       pictures: 'चित्र',

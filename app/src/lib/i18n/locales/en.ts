@@ -27,6 +27,15 @@ export const en = {
       showWeekday: 'Show Day of Week',
       showDate: 'Show Date',
     },
+    about: {
+      title: 'About',
+      version: 'Version',
+      service: 'Service',
+      notRunning: 'Not Running',
+      noRoot: 'No Root Access',
+      tv: 'TV',
+      ip: 'IP Address',
+    },
     wallpaper: {
       title: 'Wallpaper',
       pictures: 'Pictures',

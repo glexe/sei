@@ -29,6 +29,15 @@ export const fr: Locale = {
       showWeekday: 'Afficher le jour de la semaine',
       showDate: 'Afficher la date',
     },
+    about: {
+      title: 'À propos',
+      version: 'Version',
+      service: 'Service',
+      notRunning: 'Arrêté',
+      noRoot: 'Pas d’accès root',
+      tv: 'Téléviseur',
+      ip: 'Adresse IP',
+    },
     wallpaper: {
       title: 'Fond d’écran',
       pictures: 'Images',

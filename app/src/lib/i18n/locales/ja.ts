@@ -29,6 +29,15 @@ export const ja: Locale = {
       showWeekday: '曜日を表示',
       showDate: '日付を表示',
     },
+    about: {
+      title: '情報',
+      version: 'バージョン',
+      service: 'サービス',
+      notRunning: '停止中',
+      noRoot: 'root権限なし',
+      tv: 'テレビ',
+      ip: 'IPアドレス',
+    },
     wallpaper: {
       title: '壁紙',
       pictures: '写真',

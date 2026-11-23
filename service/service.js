@@ -20,6 +20,7 @@ const {
   HIDDEN,
   STATE_FILE,
 } = require('./constants');
+const { version } = require('./package.json');
 const { historyFile, insideStorage, isHome } = require('./access');
 
 // Response shapes are the web app's own types, so both sides check against one contract.
@@ -212,6 +213,11 @@ function readObject(file) {
 
 // Without Homebrew's elevation the service runs sandboxed and can't see /var/lib/sei at all.
 const isRoot = () => typeof process.getuid === 'function' && process.getuid() === 0;
+
+// For the About screen: which version answers, and whether it was elevated.
+register('getInfo', (message) => {
+  message.respond({ returnValue: true, version, root: isRoot() });
+});
 
 register('launch', (message) => {
   const { id, params } = message.payload || {};

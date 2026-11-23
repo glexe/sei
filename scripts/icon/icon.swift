@@ -31,7 +31,8 @@ ctx.setShouldAntialias(true)
 ctx.clear(CGRect(x: 0, y: 0, width: size, height: size))
 
 let stroke = size * 0.06
-let inset = size * 0.06 + stroke / 2
+let margin = args.count > 3 ? CGFloat(Double(args[3]) ?? 0) : 0.06
+let inset = size * margin + stroke / 2
 let outer = CGRect(x: inset, y: inset, width: size - inset * 2, height: size - inset * 2)
 let outerPath = squircle(outer)
 

@@ -29,6 +29,15 @@ export const th: Locale = {
       showWeekday: 'แสดงวันในสัปดาห์',
       showDate: 'แสดงวันที่',
     },
+    about: {
+      title: 'เกี่ยวกับ',
+      version: 'เวอร์ชัน',
+      service: 'บริการ',
+      notRunning: 'ไม่ได้ทำงาน',
+      noRoot: 'ไม่มีสิทธิ์ root',
+      tv: 'ทีวี',
+      ip: 'ที่อยู่ IP',
+    },
     wallpaper: {
       title: 'วอลเปเปอร์',
       pictures: 'รูปภาพ',

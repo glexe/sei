@@ -29,6 +29,15 @@ export const da: Locale = {
       showWeekday: 'Vis ugedag',
       showDate: 'Vis dato',
     },
+    about: {
+      title: 'Om',
+      version: 'Version',
+      service: 'Tjeneste',
+      notRunning: 'Kører ikke',
+      noRoot: 'Ingen root-adgang',
+      tv: 'TV',
+      ip: 'IP-adresse',
+    },
     wallpaper: {
       title: 'Baggrund',
       pictures: 'Billeder',

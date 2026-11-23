@@ -4,6 +4,7 @@ import { AudioTrack } from '../../icons/AudioTrack';
 import { Globe } from '../../icons/Globe';
 import { Subtitles } from '../../icons/Subtitles';
 import { Screen } from '../../primitives/Screen/Screen';
+import { About } from '../About/About';
 import { DateTimeSettings } from '../DateTimeSettings/DateTimeSettings';
 import { LanguageSettings } from '../LanguageSettings/LanguageSettings';
 import { LocationSearch } from '../LocationSearch/LocationSearch';
@@ -92,6 +93,8 @@ export function Settings({ settings, onChange, onClose }: Props) {
         return (
           <DateTimeSettings {...list} settings={settings} onChange={onChange} onBack={nav.pop} />
         );
+      case 'about':
+        return <About {...list} onBack={nav.pop} />;
       case 'language':
         return (
           <LanguageSettings

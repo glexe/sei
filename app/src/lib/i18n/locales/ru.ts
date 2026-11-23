@@ -29,6 +29,15 @@ export const ru: Locale = {
       showWeekday: 'Показывать день недели',
       showDate: 'Показывать дату',
     },
+    about: {
+      title: 'О программе',
+      version: 'Версия',
+      service: 'Служба',
+      notRunning: 'Не запущена',
+      noRoot: 'Нет прав root',
+      tv: 'Телевизор',
+      ip: 'IP-адрес',
+    },
     wallpaper: {
       title: 'Обои',
       pictures: 'Картинки',

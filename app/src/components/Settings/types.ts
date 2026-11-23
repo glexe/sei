@@ -16,5 +16,6 @@ export type ScreenId =
   | 'player'
   | 'language'
   | 'dateTime'
+  | 'about'
   | 'audioLanguage'
   | 'subtitleLanguage';

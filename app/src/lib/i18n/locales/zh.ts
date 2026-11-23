@@ -29,6 +29,15 @@ export const zh: Locale = {
       showWeekday: '显示星期',
       showDate: '显示日期',
     },
+    about: {
+      title: '关于',
+      version: '版本',
+      service: '服务',
+      notRunning: '未运行',
+      noRoot: '无 root 权限',
+      tv: '电视',
+      ip: 'IP 地址',
+    },
     wallpaper: {
       title: '壁纸',
       pictures: '图片',

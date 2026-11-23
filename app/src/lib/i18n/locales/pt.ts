@@ -29,6 +29,15 @@ export const pt: Locale = {
       showWeekday: 'Mostrar dia da semana',
       showDate: 'Mostrar data',
     },
+    about: {
+      title: 'Sobre',
+      version: 'Versão',
+      service: 'Serviço',
+      notRunning: 'Não está em execução',
+      noRoot: 'Sem acesso root',
+      tv: 'TV',
+      ip: 'Endereço IP',
+    },
     wallpaper: {
       title: 'Papel de parede',
       pictures: 'Imagens',

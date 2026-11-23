@@ -29,6 +29,15 @@ export const el: Locale = {
       showWeekday: 'Εμφάνιση ημέρας εβδομάδας',
       showDate: 'Εμφάνιση ημερομηνίας',
     },
+    about: {
+      title: 'Πληροφορίες',
+      version: 'Έκδοση',
+      service: 'Υπηρεσία',
+      notRunning: 'Δεν εκτελείται',
+      noRoot: 'Χωρίς πρόσβαση root',
+      tv: 'Τηλεόραση',
+      ip: 'Διεύθυνση IP',
+    },
     wallpaper: {
       title: 'Ταπετσαρία',
       pictures: 'Εικόνες',

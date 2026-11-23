@@ -30,6 +30,7 @@ export function SettingsHome({ settings, focus, onFocus, onOpen, onClose }: Prop
       chevron: true,
     },
     { id: 'dateTime', label: t('dateTime.title'), chevron: true },
+    { id: 'about', label: t('about.title'), chevron: true },
   ];
   return (
     <ListScreen

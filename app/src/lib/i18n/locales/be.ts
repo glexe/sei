@@ -29,6 +29,15 @@ export const be: Locale = {
       showWeekday: 'Паказваць дзень тыдня',
       showDate: 'Паказваць дату',
     },
+    about: {
+      title: 'Пра праграму',
+      version: 'Версія',
+      service: 'Служба',
+      notRunning: 'Не запушчана',
+      noRoot: 'Няма правоў root',
+      tv: 'Тэлевізар',
+      ip: 'IP-адрас',
+    },
     wallpaper: {
       title: 'Шпалеры',
       pictures: 'Малюнкі',

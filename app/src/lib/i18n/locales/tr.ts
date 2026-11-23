@@ -29,6 +29,15 @@ export const tr: Locale = {
       showWeekday: 'Haftanın gününü göster',
       showDate: 'Tarihi göster',
     },
+    about: {
+      title: 'Hakkında',
+      version: 'Sürüm',
+      service: 'Hizmet',
+      notRunning: 'Çalışmıyor',
+      noRoot: 'Root erişimi yok',
+      tv: 'TV',
+      ip: 'IP Adresi',
+    },
     wallpaper: {
       title: 'Duvar kâğıdı',
       pictures: 'Resimler',
