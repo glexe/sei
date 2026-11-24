@@ -41,6 +41,11 @@ describe('arrange', () => {
     expect(apps.find((a) => a.id === 'x.hidden')?.title).toBe('x.hidden');
   });
 
+  it('closes the gap in the first row when a pinned app is not installed', () => {
+    const ids = arrange([{ id: 'x.other' }, { id: 'com.apple.appletv' }]).map((a) => a.id);
+    expect(ids).toEqual(['com.apple.appletv', FILES_TILE.id, SETTINGS_TILE.id, 'x.other']);
+  });
+
   it("shows the logo of the device on an input instead of the input's icon", () => {
     const [ps5, hdmi1] = arrange([
       {
