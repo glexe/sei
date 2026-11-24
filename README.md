@@ -89,7 +89,7 @@ Home is handled by the system and can't close Files or Settings while Sei is in 
   (`"com.webos.app.lgchannels": false`), applied with `systemctl restart preload-manager.service`.
 - `npm run wallpapers -- <folder>` rebuilds the wallpapers and their credits from photos named
   `<name>_Author-<First-Last>_unsplash.jpg` (macOS).
-- `npm run icon` redraws the app icon in every size from `scripts/icon/icon.swift` (macOS).
+- `npm run icon` redraws the app icon in every size from `scripts/icon/Sei.icon`, an Icon Composer file (macOS, Xcode).
 - Settings and app order are stored in `/var/lib/sei/state.json` on the TV; playback history in `.sei/history.json`
   on each drive, so it travels with the files. Uninstalling apps wipes webOS's `localStorage`, which Sei only uses
   as a cache.
