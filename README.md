@@ -10,7 +10,8 @@ An ad-free home screen for rooted LG webOS TVs.
 
 | | |
 | --- | --- |
-| ![Wallpaper settings](docs/wallpapers.jpg) | ![Files](docs/files.jpg) |
+| ![All apps](docs/apps.jpg) | ![Files with a watched video and a resume bar](docs/files.jpg) |
+| ![Player with the audio track menu](docs/player.jpg) | ![Wallpaper settings](docs/wallpapers.jpg) |
 
 ## Features
 
@@ -28,7 +29,7 @@ An ad-free home screen for rooted LG webOS TVs.
 - webOS 25 or newer. Tested on one TV, an LG OLED C3 with webOS 11.2 (platform version).
 
 Use at your own risk. Firmware updates can remove root, so keep automatic updates off; if LG Home comes back after one,
-install Sei again.
+install Sei again. Don't combine it with other home replacements, such as Home Chooser or Luma's takeover.
 
 ## Install
 
