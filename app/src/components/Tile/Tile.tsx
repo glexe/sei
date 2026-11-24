@@ -1,12 +1,13 @@
 import { useState } from 'preact/hooks';
 import { isLight } from '../../lib/color/color';
+import type { AppInfo } from '../../lib/apps/types';
 import { cx } from '../../lib/cx/cx';
 import styles from './Tile.module.css';
 import type { Props } from './types';
 
 export function Tile({ app, index, focused, pressed, moving, titled }: Props) {
-  // Keyed by path so a refreshed icon gets another try.
-  const [failedIcon, setFailedIcon] = useState('');
+  // Keyed by the app object, so every refreshed list gives its icon another try.
+  const [failed, setFailed] = useState<AppInfo | null>(null);
 
   return (
     <div
@@ -20,12 +21,12 @@ export function Tile({ app, index, focused, pressed, moving, titled }: Props) {
       style={app.color ? { '--tile-color': app.color } : undefined}
     >
       <div class={cx(styles.art, app.internal && styles.shaded)}>
-        {app.icon && app.icon !== failedIcon ? (
+        {app.icon && failed !== app ? (
           <img
             class={cx(styles.icon, app.logo && styles.logo)}
             src={app.icon}
             alt=""
-            onError={() => setFailedIcon(app.icon)}
+            onError={() => setFailed(app)}
           />
         ) : (
           <div class={cx(styles.fallback, isLight(app.color) && styles.onLight)}>{app.title}</div>

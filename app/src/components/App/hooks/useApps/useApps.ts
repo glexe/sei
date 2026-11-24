@@ -14,7 +14,8 @@ function launchParams(system: WebOSSystem | undefined): LaunchParams {
 
 export function useApps({ onError, onRelaunch }: Options): AppInfo[] {
   const [apps, setApps] = useState<AppInfo[]>(cachedApps);
-  const keyRef = useRef(JSON.stringify(apps));
+  // Empty, so the first answer always renders: the cached list's icons may be gone from disk and need another try.
+  const keyRef = useRef('');
   const optsRef = useRef({ onError, onRelaunch });
   useLayoutEffect(() => {
     optsRef.current = { onError, onRelaunch };
