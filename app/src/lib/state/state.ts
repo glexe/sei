@@ -4,7 +4,7 @@ import type { LunaResponse } from '../luna/types';
 import { isRecord } from '../storage/storage';
 import type { PersistedState } from './types';
 
-// webOS wipes every app's localStorage when any app is uninstalled, so the service keeps the real copy.
+// webOS can wipe every app's localStorage when an app is uninstalled, so the service keeps the real copy.
 let current: PersistedState = {};
 let loading: Promise<PersistedState | null> | null = null;
 let writing: Promise<unknown> = Promise.resolve();

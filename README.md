@@ -24,8 +24,7 @@ An ad-free home screen for rooted LG webOS TVs.
 
 ## Requirements
 
-- A rooted TV with [Homebrew Channel](https://github.com/webosbrew/webos-homebrew-channel) and its SSH server on:
-  `ssh root@<TV_IP>` has to work.
+- A rooted TV with [Homebrew Channel](https://github.com/webosbrew/webos-homebrew-channel) 0.8.0 or newer.
 - webOS 25 or newer. Tested on one TV, an LG OLED C3 with webOS 11.2 (platform version).
 
 Use at your own risk. Firmware updates can remove root, so keep automatic updates off; if LG Home comes back after one,
@@ -33,17 +32,25 @@ install Sei again. Don't combine it with other home replacements, such as Home C
 
 ## Install
 
-From macOS or Linux:
+With the remote:
+
+1. In Homebrew Channel, open Settings, choose **Add repository** and enter
+   `https://github.com/glexe/sei/releases/latest/download/apps.json`.
+2. Find **Sei** in the list and install it, then open it and choose **Install**.
+3. Restart the TV, and set **Power On Screen** to **Home** in the TV settings.
+
+Homebrew Channel also updates Sei and uninstalls it. After uninstalling, press Home: Sei offers to restart the TV, and
+LG Home returns.
+
+Or from macOS or Linux over SSH (`ssh root@<TV_IP>` has to work):
 
 ```bash
 curl -L https://github.com/glexe/sei/releases/latest/download/sei.tar.gz | tar -xz
 sh sei/install.sh <TV_IP>
 ```
 
-Reboot the TV when it asks, and set **Power On Screen** to **Home** in the TV settings. To update, run it again.
-
-To remove: `sh sei/install.sh <TV_IP> remove`, then reboot. LG Home returns. A small hidden package, Sei service, stays
-behind: uninstalling any app makes webOS erase the local data of all of them.
+To update, run it again. To remove: `sh sei/install.sh <TV_IP> remove`, then restart; the Sei app itself stays until you
+uninstall it in Homebrew Channel.
 
 ## Development
 
@@ -54,8 +61,8 @@ npm run check             # types, React Compiler coverage, tests, lint, format
 
 export TV_HOST=<TV_IP>
 npm run deploy            # build and install the home screen
-npm run install:service   # after service changes; needs npm install -g @webos-tools/cli
-npm run release           # dist/sei.tar.gz, what the installer downloads
+npm run install:package   # after service changes; needs npm install -g @webos-tools/cli
+npm run release           # dist/: the package, its Homebrew Channel files, the SSH installer
 ```
 
 The layout is a fixed 1920×1080. In the browser, use the DevTools device toolbar at that size with **Fit to window**.
@@ -68,8 +75,12 @@ The app installs as `com.webos.app.home` version 99 in `/media/system/apps`, the
 updates. The app manager runs the highest version of an id, so Sei becomes Home: on boot, power-on, the Home key and
 when an app closes. Nothing is patched.
 
+It travels in the package `com.glexe.sei`, which is the same web app: opened as an app, it shows the setup screen that
+installs it as Home. Homebrew Channel only replaces the package; Sei notices a newer one, copies it over itself and
+reloads.
+
 A small Node service (`service/`, root) does what a web app can't: list, launch and uninstall apps, cache their icons
-and read USB storage. It answers only Sei and starts on demand. Log: `/tmp/sei-service.log`.
+and read USB storage. It answers only Sei and its setup screen, and starts on demand. Log: `/tmp/sei-service.log`.
 
 The player is a `<video>` element with LG's own USB media options, so the system decodes MKV and HEVC in hardware.
 
@@ -92,7 +103,7 @@ Home is handled by the system and can't close Files or Settings while Sei is in 
   `<name>_Author-<First-Last>_unsplash.jpg` (macOS).
 - `npm run icon` redraws the app icon in every size from `scripts/icon/Sei.icon`, an Icon Composer file (macOS, Xcode).
 - Settings and app order are stored in `/var/lib/sei/state.json` on the TV; playback history in `.sei/history.json`
-  on each drive, so it travels with the files. Uninstalling apps wipes webOS's `localStorage`, which Sei only uses
+  on each drive, so it travels with the files. Uninstalling an app can wipe webOS's `localStorage`, which Sei only uses
   as a cache.
 
 ## Layout
@@ -105,7 +116,7 @@ app/src/
   lib/          logic and platform access, with tests
   icons/        Phosphor icons as JSX
 service/        root Node service
-tv/host/        stub package that carries the service
+tv/host/        appinfo of the package
 scripts/        installer, release, wallpaper sync, icon, compiler check, lint rule
 docs/           screenshots
 ```

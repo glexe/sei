@@ -18,6 +18,20 @@ export const it: Locale = {
       move: 'Sposta',
       moveHint: 'Sposta con le frecce, poi premi OK.',
     },
+    setup: {
+      caption:
+        'Sei diventa la schermata iniziale di questo TV. LG Home resta sul TV e torna quando disinstalli Sei.',
+      install: 'Installa',
+      installing: 'Installazione…',
+      restartCaption: 'Sei è installato. Riavvia il TV per avviarlo.',
+      restart: 'Riavvia il TV',
+      restarting: 'Riavvio…',
+      noRoot: 'Sei richiede Homebrew Channel 0.8.0 o successivo con accesso root.',
+      failed: 'Impossibile installare: {error}',
+      uninstalledTitle: 'Sei è stato disinstallato',
+      uninstalledText: 'Riavvia il TV per riavere LG Home.',
+      cantRemove: 'Impossibile rimuovere Sei: {error}',
+    },
     settings: {
       title: 'Impostazioni',
       caption: 'Personalizza la schermata Home.',

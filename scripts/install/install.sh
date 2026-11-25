@@ -1,28 +1,26 @@
 #!/bin/sh
-# Installs Sei on a rooted TV over SSH: install.sh <TV IP> [all|service|home|remove]
+# Installs Sei on a rooted TV over SSH: install.sh <TV IP> [all|package|home|remove]
 set -e
-HOST="${1:?usage: install.sh <TV IP> [all|service|home|remove]}"
+HOST="${1:?usage: install.sh <TV IP> [all|package|home|remove]}"
 WHAT="${2:-all}"
 HERE=$(cd "$(dirname "$0")" && pwd)
 REMOTE=/tmp/sei-install
 
-# A release has everything beside this script; in the repository it is where the build puts it.
-if [ -d "$HERE/app" ]; then
-  APP=$HERE/app
-  IPK=$HERE/service.ipk
+# A release has the package beside this script; in the repository both parts are where the build puts them.
+if [ -f "$HERE/sei.ipk" ]; then
+  IPK=$HERE/sei.ipk
 else
   ROOT=$(cd "$HERE/../.." && pwd)
   APP=$ROOT/build/app
-  IPK=$ROOT/dist/service.ipk
+  IPK=$ROOT/dist/sei.ipk
 fi
 
 STAGE=$(mktemp -d)
 trap 'rm -rf "$STAGE"' EXIT
 cp "$HERE/tv.sh" "$STAGE/"
 case "$WHAT" in
-  all) cp -R "$APP" "$STAGE/app" && cp "$IPK" "$STAGE/service.ipk" ;;
-  service) cp "$IPK" "$STAGE/service.ipk" ;;
-  home) cp -R "$APP" "$STAGE/app" ;;
+  all | package) cp "$IPK" "$STAGE/sei.ipk" ;;
+  home) cp -R "${APP:?home is for development: run it in the repository}" "$STAGE/app" ;;
   remove) ;;
   *) echo "unknown: $WHAT" >&2 && exit 1 ;;
 esac

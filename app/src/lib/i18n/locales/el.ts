@@ -18,6 +18,20 @@ export const el: Locale = {
       move: 'Μετακίνηση',
       moveHint: 'Μετακινήστε με τα βέλη και πατήστε OK.',
     },
+    setup: {
+      caption:
+        'Το Sei γίνεται η αρχική οθόνη αυτής της τηλεόρασης. Το LG Home παραμένει και επιστρέφει όταν απεγκαταστήσετε το Sei.',
+      install: 'Εγκατάσταση',
+      installing: 'Εγκατάσταση…',
+      restartCaption: 'Το Sei εγκαταστάθηκε. Επανεκκινήστε την τηλεόραση για να ξεκινήσει.',
+      restart: 'Επανεκκίνηση',
+      restarting: 'Επανεκκίνηση…',
+      noRoot: 'Απαιτείται Homebrew Channel 0.8.0 ή νεότερο με πρόσβαση root.',
+      failed: 'Η εγκατάσταση απέτυχε: {error}',
+      uninstalledTitle: 'Το Sei απεγκαταστάθηκε',
+      uninstalledText: 'Επανεκκινήστε την τηλεόραση για να επιστρέψει το LG Home.',
+      cantRemove: 'Δεν ήταν δυνατή η αφαίρεση του Sei: {error}',
+    },
     settings: {
       title: 'Ρυθμίσεις',
       caption: 'Εξατομικεύστε την αρχική οθόνη.',

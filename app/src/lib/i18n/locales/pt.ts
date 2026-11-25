@@ -18,6 +18,20 @@ export const pt: Locale = {
       move: 'Mover',
       moveHint: 'Mova com as setas e pressione OK.',
     },
+    setup: {
+      caption:
+        'O Sei passa a ser a tela inicial desta TV. O LG Home continua na TV e volta quando você desinstala o Sei.',
+      install: 'Instalar',
+      installing: 'Instalando…',
+      restartCaption: 'O Sei está instalado. Reinicie a TV para usá-lo.',
+      restart: 'Reiniciar TV',
+      restarting: 'Reiniciando…',
+      noRoot: 'O Sei precisa do Homebrew Channel 0.8.0 ou mais recente com acesso root.',
+      failed: 'Não foi possível instalar: {error}',
+      uninstalledTitle: 'O Sei foi desinstalado',
+      uninstalledText: 'Reinicie a TV para ter o LG Home de volta.',
+      cantRemove: 'Não foi possível remover o Sei: {error}',
+    },
     settings: {
       title: 'Configurações',
       caption: 'Personalize sua tela inicial.',

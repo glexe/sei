@@ -1,5 +1,6 @@
 import { useState } from 'preact/hooks';
 import { I18nContext } from '../../hooks/useI18n/useI18n';
+import { useLanguage } from '../../hooks/useLanguage/useLanguage';
 import { useRemote } from '../../hooks/useRemote/useRemote';
 import { useSettings } from '../../hooks/useSettings/useSettings';
 import { useStateRef } from '../../hooks/useStateRef/useStateRef';
@@ -11,18 +12,19 @@ import { colOf, moveFocus, rowOf } from '../../lib/gridNav/gridNav';
 import { errorText } from '../../lib/luna/luna';
 import { Key } from '../../lib/remote/constants';
 import { isBack } from '../../lib/remote/remote';
+import { removeHome } from '../../lib/setup/setup';
 import { ConfirmDialog } from '../../primitives/ConfirmDialog/ConfirmDialog';
 import { ContextMenu } from '../../primitives/ContextMenu/ContextMenu';
+import { Stage } from '../../primitives/Stage/Stage';
 import { Toast } from '../../primitives/Toast/Toast';
 import { AppGrid } from '../AppGrid/AppGrid';
 import { Files } from '../Files/Files';
 import { Hero } from '../Hero/Hero';
 import { Settings } from '../Settings/Settings';
 import { TopBar } from '../TopBar/TopBar';
-import styles from './App.module.css';
 import type { Mode } from './types';
 import { GRID, HOLD_MS, PRESS_MS, STEPS } from './constants';
-import { useHomeApps, useLanguage, useOkHold, useToast } from './hooks';
+import { useHomeApps, useOkHold, usePackage, useToast } from './hooks';
 
 export function App() {
   const [toast, showToast] = useToast();
@@ -42,6 +44,8 @@ export function App() {
     onError: (err) => showToast(t('home.cantLoadApps', { error: errorText(err) })),
     onRelaunch: goHome,
   });
+
+  usePackage(() => setMode({ kind: 'uninstalled' }));
 
   // A menu, move or confirmation whose app left the list falls back to the grid.
   const target = 'id' in mode ? apps.find((app) => app.id === mode.id) : undefined;
@@ -135,7 +139,7 @@ export function App() {
 
   return (
     <I18nContext.Provider value={i18n}>
-      <div class={styles.stage}>
+      <Stage>
         <Hero wallpaper={settings.wallpaper} dimmed={scrolled} hidden={overlayOpen} />
         <TopBar
           weatherPlace={settings.weatherEnabled ? settings.weatherPlace : null}
@@ -201,8 +205,23 @@ export function App() {
             onCancel={() => setMode(GRID)}
           />
         )}
+        {active.kind === 'uninstalled' && (
+          <ConfirmDialog
+            title={t('setup.uninstalledTitle')}
+            text={t('setup.uninstalledText')}
+            confirmLabel={t('setup.restart')}
+            cancelLabel={t('common.cancel')}
+            onConfirm={() => {
+              setMode(GRID);
+              removeHome().catch((err: unknown) =>
+                showToast(t('setup.cantRemove', { error: errorText(err) })),
+              );
+            }}
+            onCancel={() => setMode(GRID)}
+          />
+        )}
         <Toast text={toast} />
-      </div>
+      </Stage>
     </I18nContext.Provider>
   );
 }

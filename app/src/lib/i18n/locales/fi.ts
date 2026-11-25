@@ -18,6 +18,20 @@ export const fi: Locale = {
       move: 'Siirrä',
       moveHint: 'Siirrä nuolilla ja paina OK.',
     },
+    setup: {
+      caption:
+        'Seistä tulee tämän television aloitusnäyttö. LG Home jää televisioon ja palaa, kun poistat Sein.',
+      install: 'Asenna',
+      installing: 'Asennetaan…',
+      restartCaption: 'Sei on asennettu. Se tulee käyttöön, kun käynnistät television uudelleen.',
+      restart: 'Käynnistä uudelleen',
+      restarting: 'Käynnistetään uudelleen…',
+      noRoot: 'Sei vaatii Homebrew Channel 0.8.0:n tai uudemman ja root-oikeudet.',
+      failed: 'Asennus epäonnistui: {error}',
+      uninstalledTitle: 'Sei on poistettu',
+      uninstalledText: 'Käynnistä televisio uudelleen, niin LG Home palaa.',
+      cantRemove: 'Sein poistaminen epäonnistui: {error}',
+    },
     settings: {
       title: 'Asetukset',
       caption: 'Muokkaa aloitusnäyttöä.',

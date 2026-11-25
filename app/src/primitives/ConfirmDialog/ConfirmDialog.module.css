@@ -8,6 +8,15 @@
   text-align: center;
 }
 
+.art {
+  flex: none;
+  width: 320px;
+  height: 320px;
+  margin-bottom: var(--space-12);
+  border-radius: calc(var(--preview-radius) * 320 / 560);
+  overflow: hidden;
+}
+
 .title {
   max-width: 1200px;
   margin: 0;
@@ -20,6 +29,7 @@
   margin: var(--space-8) 0 var(--space-16);
   font-size: var(--type-callout);
   line-height: 1.35;
+  text-wrap: balance;
   color: var(--text-muted);
 }
 
@@ -28,6 +38,8 @@
   flex-direction: column;
   gap: var(--space-5);
   width: 560px;
+  /* Both buttons, so nothing moves while they are hidden. */
+  min-height: calc(80px * 2 + var(--space-5));
 }
 
 .button {

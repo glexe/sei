@@ -4,7 +4,11 @@
   "vendor": "glexe",
   "type": "web",
   "main": "index.html",
-  "title": "Sei service",
+  "title": "Sei",
+  "appDescription": "Ad-free home screen",
   "icon": "icon.png",
-  "visible": false
+  "largeIcon": "largeIcon.png",
+  "iconColor": "#3c3f46",
+  "resolution": "1920x1080",
+  "disableBackHistoryAPI": true
 }

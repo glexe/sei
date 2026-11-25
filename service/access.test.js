@@ -4,7 +4,7 @@ import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import access from './access';
 
-const { isHome, insideStorage, historyFile } = access;
+const { isHome, isPackage, insideStorage, historyFile } = access;
 
 describe('isHome', () => {
   it.each(['com.webos.app.home', 'com.webos.app.home-1234'])('accepts %s', (sender) => {
@@ -23,6 +23,19 @@ describe('isHome', () => {
   ])('rejects %s', (sender) => {
     expect(isHome(sender)).toBe(false);
   });
+});
+
+describe('isPackage', () => {
+  it.each(['com.glexe.sei', 'com.glexe.sei-1234'])('accepts %s', (sender) => {
+    expect(isPackage(sender)).toBe(true);
+  });
+
+  it.each([undefined, '', 'com.glexe.sei.service', 'com.glexe.seii', 'com.webos.app.home'])(
+    'rejects %s',
+    (sender) => {
+      expect(isPackage(sender)).toBe(false);
+    },
+  );
 });
 
 describe('storage paths', () => {

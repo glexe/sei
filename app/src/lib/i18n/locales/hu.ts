@@ -18,6 +18,20 @@ export const hu: Locale = {
       move: 'Áthelyezés',
       moveHint: 'Mozgassa a nyilakkal, majd nyomja meg az OK gombot.',
     },
+    setup: {
+      caption:
+        'A Sei lesz a tévé kezdőképernyője. Az LG Home a tévén marad, és visszatér, ha eltávolítja a Seit.',
+      install: 'Telepítés',
+      installing: 'Telepítés…',
+      restartCaption: 'A Sei telepítve van. Az indításához indítsa újra a tévét.',
+      restart: 'Tévé újraindítása',
+      restarting: 'Újraindítás…',
+      noRoot: 'A Seihez Homebrew Channel 0.8.0 vagy újabb szükséges, root hozzáféréssel.',
+      failed: 'Nem sikerült telepíteni: {error}',
+      uninstalledTitle: 'A Sei el lett távolítva',
+      uninstalledText: 'Indítsa újra a tévét az LG Home visszaállításához.',
+      cantRemove: 'Nem sikerült eltávolítani a Seit: {error}',
+    },
     settings: {
       title: 'Beállítások',
       caption: 'Szabja testre a kezdőképernyőt.',

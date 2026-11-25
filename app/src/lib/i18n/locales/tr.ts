@@ -18,6 +18,20 @@ export const tr: Locale = {
       move: 'Taşı',
       moveHint: 'Oklarla taşıyın, ardından OK’e basın.',
     },
+    setup: {
+      caption:
+        'Sei bu televizyonun ana ekranı olur. LG Home televizyonda kalır ve Sei kaldırıldığında geri gelir.',
+      install: 'Yükle',
+      installing: 'Yükleniyor…',
+      restartCaption: 'Sei yüklendi. Başlatmak için televizyonu yeniden başlatın.',
+      restart: 'Yeniden Başlat',
+      restarting: 'Yeniden başlatılıyor…',
+      noRoot: 'Sei için root erişimi olan Homebrew Channel 0.8.0 veya daha yenisi gerekir.',
+      failed: 'Yüklenemedi: {error}',
+      uninstalledTitle: 'Sei kaldırıldı',
+      uninstalledText: 'LG Home’a dönmek için televizyonu yeniden başlatın.',
+      cantRemove: 'Sei kaldırılamadı: {error}',
+    },
     settings: {
       title: 'Ayarlar',
       caption: 'Ana ekranınızı kişiselleştirin.',

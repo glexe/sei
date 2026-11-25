@@ -1,6 +1,7 @@
 import { PINNED } from '../../config/constants';
 import { lunaCall } from '../luna/luna';
 import { fetchState, saveState } from '../state/state';
+import { PACKAGE_ID } from '../setup/constants';
 import { isRecord, isStringArray, readJson, writeJson } from '../storage/storage';
 import type { LaunchPoint, AppInfo, ListAppsResponse } from './types';
 import { SERVICE } from '../luna/constants';
@@ -18,7 +19,9 @@ function normalize(lp: LaunchPoint): AppInfo {
   };
 }
 
-export function arrange(launchPoints: LaunchPoint[]): AppInfo[] {
+export function arrange(found: LaunchPoint[]): AppInfo[] {
+  // The package's own icon only leads back to setup.
+  const launchPoints = found.filter((lp) => lp.id !== PACKAGE_ID);
   const byId = new Map(launchPoints.map((lp) => [lp.id, lp]));
   const top = PINNED.flatMap((id) => {
     const tile = INTERNAL_TILES.find((t) => t.id === id);

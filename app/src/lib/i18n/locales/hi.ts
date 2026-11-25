@@ -18,6 +18,20 @@ export const hi: Locale = {
       move: 'खिसकाएँ',
       moveHint: 'तीरों से खिसकाएँ, फिर OK दबाएँ।',
     },
+    setup: {
+      caption:
+        'Sei इस टीवी की होम स्क्रीन बन जाएगा। LG Home टीवी में बना रहता है और Sei को अनइंस्टॉल करने पर वापस आ जाता है।',
+      install: 'इंस्टॉल करें',
+      installing: 'इंस्टॉल हो रहा है…',
+      restartCaption: 'Sei इंस्टॉल हो गया। इसे शुरू करने के लिए टीवी रीस्टार्ट करें।',
+      restart: 'टीवी रीस्टार्ट करें',
+      restarting: 'रीस्टार्ट हो रहा है…',
+      noRoot: 'Sei को root एक्सेस वाला Homebrew Channel 0.8.0 या नया चाहिए।',
+      failed: 'इंस्टॉल नहीं हो सका: {error}',
+      uninstalledTitle: 'Sei अनइंस्टॉल हो गया',
+      uninstalledText: 'LG Home वापस लाने के लिए टीवी रीस्टार्ट करें।',
+      cantRemove: 'Sei हटाया नहीं जा सका: {error}',
+    },
     settings: {
       title: 'सेटिंग्स',
       caption: 'अपनी होम स्क्रीन को निजीकृत करें।',

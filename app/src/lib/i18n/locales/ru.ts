@@ -18,6 +18,20 @@ export const ru: Locale = {
       move: 'Переместить',
       moveHint: 'Перемещайте стрелками, затем нажмите OK.',
     },
+    setup: {
+      caption:
+        'Sei станет домашним экраном этого телевизора. LG Home останется на телевизоре и вернётся, если удалить Sei.',
+      install: 'Установить',
+      installing: 'Установка…',
+      restartCaption: 'Sei установлен. Перезагрузите телевизор, чтобы он запустился.',
+      restart: 'Перезагрузить',
+      restarting: 'Перезагрузка…',
+      noRoot: 'Нужен Homebrew Channel 0.8.0 или новее с правами root.',
+      failed: 'Не удалось установить: {error}',
+      uninstalledTitle: 'Sei удалён',
+      uninstalledText: 'Перезагрузите телевизор, чтобы вернуть LG Home.',
+      cantRemove: 'Не удалось убрать Sei: {error}',
+    },
     settings: {
       title: 'Настройки',
       caption: 'Настройте главный экран.',

@@ -18,6 +18,20 @@ export const da: Locale = {
       move: 'Flyt',
       moveHint: 'Flyt med pilene, og tryk på OK.',
     },
+    setup: {
+      caption:
+        "Sei bliver startskærmen på dette tv. LG Home bliver på tv'et og vender tilbage, når du afinstallerer Sei.",
+      install: 'Installer',
+      installing: 'Installerer…',
+      restartCaption: "Sei er installeret. Genstart tv'et for at starte det.",
+      restart: 'Genstart tv',
+      restarting: 'Genstarter…',
+      noRoot: 'Sei kræver Homebrew Channel 0.8.0 eller nyere med root-adgang.',
+      failed: 'Kunne ikke installere: {error}',
+      uninstalledTitle: 'Sei er afinstalleret',
+      uninstalledText: "Genstart tv'et for at få LG Home tilbage.",
+      cantRemove: 'Kunne ikke fjerne Sei: {error}',
+    },
     settings: {
       title: 'Indstillinger',
       caption: 'Tilpas din hjemmeskærm.',

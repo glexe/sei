@@ -18,6 +18,20 @@ export const ja: Locale = {
       move: '移動',
       moveHint: '矢印キーで移動して、OKを押してください。',
     },
+    setup: {
+      caption:
+        'Seiがこのテレビのホーム画面になります。LG Homeはテレビに残り、Seiをアンインストールすると元に戻ります。',
+      install: 'インストール',
+      installing: 'インストール中…',
+      restartCaption: 'Seiをインストールしました。テレビを再起動すると使えます。',
+      restart: 'テレビを再起動',
+      restarting: '再起動中…',
+      noRoot: 'root権限のあるHomebrew Channel 0.8.0以降が必要です。',
+      failed: 'インストールできませんでした: {error}',
+      uninstalledTitle: 'Seiがアンインストールされました',
+      uninstalledText: 'テレビを再起動するとLG Homeに戻ります。',
+      cantRemove: 'Seiを削除できませんでした: {error}',
+    },
     settings: {
       title: '設定',
       caption: 'ホーム画面をカスタマイズします。',

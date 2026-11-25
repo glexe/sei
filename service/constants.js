@@ -3,6 +3,7 @@
 const path = require('path');
 
 const SERVICE_ID = 'com.glexe.sei.service';
+const PACKAGE_ID = 'com.glexe.sei';
 const APP_MANAGER = 'luna://com.webos.service.applicationmanager';
 const APP_INSTALLER = 'luna://com.webos.appInstallService';
 // LG's detector of HDMI devices: it recognizes them by SPD and CEC and downloads their brands' logos.
@@ -11,15 +12,20 @@ const BRAND_LOGOS_MS = 2000;
 // The launcher is installed as the system Home app (scripts/install).
 const HOME_ID = 'com.webos.app.home';
 const APP_DIR = '/media/system/apps/usr/palm/applications/' + HOME_ID;
+// The package carries the home screen's files: the same build, with the home's appinfo beside its own.
+const PACKAGE_DIR = path.resolve(__dirname, '../../applications', PACKAGE_ID);
+const HOME_APPINFO = 'home.json';
 const CACHE_DIR = path.join(APP_DIR, 'cache');
 const LOG_FILE = '/tmp/sei-service.log';
 const IMAGE_FIELDS = ['icon', 'largeIcon', 'mediumLargeIcon', 'extraLargeIcon', 'brandLogo'];
 // Under the root runner Node exits before Luna replies unless kept alive.
 const IDLE_MS = 60 * 1000;
+// Long enough for the answer to leave before the process exits.
+const QUIT_MS = 200;
 const REMOVE_MS = 2 * 60 * 1000;
 const STORAGE_ROOT = '/tmp/usb/';
 const MAX_ENTRIES = 5000;
-// Settings and app order: outside WebAppMgr's localStorage, which webOS wipes whenever any app is uninstalled.
+// Settings and app order: outside WebAppMgr's localStorage, which webOS can wipe when an app is uninstalled.
 const STATE_FILE = '/var/lib/sei/state.json';
 // Playback history lives on each drive, so it travels with the files.
 const HISTORY_FILE = '.sei/history.json';
@@ -28,6 +34,9 @@ const HIDDEN = /^(\.|\$|System Volume Information$)/;
 
 module.exports = {
   SERVICE_ID,
+  PACKAGE_ID,
+  PACKAGE_DIR,
+  HOME_APPINFO,
   APP_MANAGER,
   APP_INSTALLER,
   BRAND_LOGOS,
@@ -38,6 +47,7 @@ module.exports = {
   LOG_FILE,
   IMAGE_FIELDS,
   IDLE_MS,
+  QUIT_MS,
   REMOVE_MS,
   STORAGE_ROOT,
   MAX_ENTRIES,

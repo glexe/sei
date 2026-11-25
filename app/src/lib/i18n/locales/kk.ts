@@ -18,6 +18,20 @@ export const kk: Locale = {
       move: 'Жылжыту',
       moveHint: 'Көрсеткілермен жылжытып, OK түймесін басыңыз.',
     },
+    setup: {
+      caption:
+        'Sei осы теледидардың басты экраны болады. LG Home теледидарда қалады және Sei жойылғанда қайта оралады.',
+      install: 'Орнату',
+      installing: 'Орнатылуда…',
+      restartCaption: 'Sei орнатылды. Іске қосу үшін теледидарды қайта қосыңыз.',
+      restart: 'Қайта қосу',
+      restarting: 'Қайта қосылуда…',
+      noRoot: 'Root рұқсаты бар Homebrew Channel 0.8.0 немесе жаңарақ нұсқасы керек.',
+      failed: 'Орнату мүмкін болмады: {error}',
+      uninstalledTitle: 'Sei жойылды',
+      uninstalledText: 'LG Home қайтару үшін теледидарды қайта қосыңыз.',
+      cantRemove: 'Sei жою мүмкін болмады: {error}',
+    },
     settings: {
       title: 'Параметрлер',
       caption: 'Басты экранды өзіңізге бейімдеңіз.',

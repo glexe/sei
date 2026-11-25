@@ -18,6 +18,20 @@ export const nl: Locale = {
       move: 'Verplaats',
       moveHint: 'Verplaats met de pijltjes en druk op OK.',
     },
+    setup: {
+      caption:
+        'Sei wordt het startscherm van deze tv. LG Home blijft op de tv staan en keert terug als je Sei verwijdert.',
+      install: 'Installeer',
+      installing: 'Installeren…',
+      restartCaption: 'Sei is geïnstalleerd. Start de tv opnieuw om het te gebruiken.',
+      restart: 'Start tv opnieuw',
+      restarting: 'Opnieuw starten…',
+      noRoot: 'Sei heeft Homebrew Channel 0.8.0 of nieuwer met roottoegang nodig.',
+      failed: 'Installeren mislukt: {error}',
+      uninstalledTitle: 'Sei is verwijderd',
+      uninstalledText: 'Start de tv opnieuw om LG Home terug te krijgen.',
+      cantRemove: 'Kan Sei niet verwijderen: {error}',
+    },
     settings: {
       title: 'Instellingen',
       caption: 'Pas je beginscherm aan.',

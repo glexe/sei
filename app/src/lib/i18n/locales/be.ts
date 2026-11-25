@@ -18,6 +18,20 @@ export const be: Locale = {
       move: 'Перамясціць',
       moveHint: 'Перамяшчайце стрэлкамі, потым націсніце OK.',
     },
+    setup: {
+      caption:
+        'Sei становіцца галоўным экранам гэтага тэлевізара. LG Home застаецца на тэлевізары і вернецца, калі вы выдаліце Sei.',
+      install: 'Усталяваць',
+      installing: 'Усталяванне…',
+      restartCaption: 'Sei усталяваны. Перазагрузіце тэлевізар, каб запусціць яго.',
+      restart: 'Перазагрузіць',
+      restarting: 'Перазагрузка…',
+      noRoot: 'Патрэбен Homebrew Channel 0.8.0 або навейшы з правамі root.',
+      failed: 'Не ўдалося ўсталяваць: {error}',
+      uninstalledTitle: 'Sei выдалены',
+      uninstalledText: 'Перазагрузіце тэлевізар, каб вярнуць LG Home.',
+      cantRemove: 'Не ўдалося выдаліць Sei: {error}',
+    },
     settings: {
       title: 'Налады',
       caption: 'Наладзьце галоўны экран.',

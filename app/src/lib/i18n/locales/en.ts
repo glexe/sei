@@ -16,6 +16,20 @@ export const en = {
       move: 'Move',
       moveHint: 'Move with the arrows, then press OK.',
     },
+    setup: {
+      caption:
+        'Sei becomes the home screen of this TV. LG Home stays on the TV and returns when you uninstall Sei.',
+      install: 'Install',
+      installing: 'Installing…',
+      restartCaption: 'Sei is installed. Restart the TV to start it.',
+      restart: 'Restart TV',
+      restarting: 'Restarting…',
+      noRoot: 'Sei needs Homebrew Channel 0.8.0 or newer with root access.',
+      failed: "Couldn't install: {error}",
+      uninstalledTitle: 'Sei was uninstalled',
+      uninstalledText: 'Restart the TV to get LG Home back.',
+      cantRemove: "Couldn't remove Sei: {error}",
+    },
     settings: {
       title: 'Settings',
       caption: 'Personalize your Home Screen.',

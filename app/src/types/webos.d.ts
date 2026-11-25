@@ -5,6 +5,8 @@ interface PalmServiceBridge {
 }
 
 interface WebOSSystem {
+  // The app's id, with the process id after a space on older TVs.
+  identifier?: string;
   launchParams?: string;
   locale?: string;
 }

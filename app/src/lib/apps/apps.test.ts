@@ -41,6 +41,13 @@ describe('arrange', () => {
     expect(apps.find((a) => a.id === 'x.hidden')?.title).toBe('x.hidden');
   });
 
+  it("leaves out Sei's own package", () => {
+    const ids = arrange([{ id: 'com.glexe.sei', title: 'Sei' }, { id: 'x.other' }]).map(
+      (a) => a.id,
+    );
+    expect(ids).toEqual([FILES_TILE.id, SETTINGS_TILE.id, 'x.other']);
+  });
+
   it('closes the gap in the first row when a pinned app is not installed', () => {
     const ids = arrange([{ id: 'x.other' }, { id: 'com.apple.appletv' }]).map((a) => a.id);
     expect(ids).toEqual(['com.apple.appletv', FILES_TILE.id, SETTINGS_TILE.id, 'x.other']);

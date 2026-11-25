@@ -18,6 +18,20 @@ export const ro: Locale = {
       move: 'Mută',
       moveHint: 'Mută cu săgețile, apoi apasă OK.',
     },
+    setup: {
+      caption:
+        'Sei devine ecranul principal al acestui televizor. LG Home rămâne pe televizor și revine când dezinstalezi Sei.',
+      install: 'Instalează',
+      installing: 'Se instalează…',
+      restartCaption: 'Sei este instalat. Repornește televizorul pentru a-l folosi.',
+      restart: 'Repornește televizorul',
+      restarting: 'Se repornește…',
+      noRoot: 'Sei are nevoie de Homebrew Channel 0.8.0 sau mai nou, cu acces root.',
+      failed: 'Nu s-a putut instala: {error}',
+      uninstalledTitle: 'Sei a fost dezinstalat',
+      uninstalledText: 'Repornește televizorul pentru a reveni la LG Home.',
+      cantRemove: 'Sei nu a putut fi eliminat: {error}',
+    },
     settings: {
       title: 'Setări',
       caption: 'Personalizează ecranul principal.',

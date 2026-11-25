@@ -3,13 +3,20 @@
 
 const fs = require('fs');
 const path = require('path');
-const { HOME_ID, STORAGE_ROOT, HISTORY_FILE } = require('./constants');
+const { HOME_ID, PACKAGE_ID, STORAGE_ROOT, HISTORY_FILE } = require('./constants');
 
 // An app's sender may carry a -pid suffix.
-const HOME_SENDER = new RegExp(`^${HOME_ID.replace(/\./g, '\\.')}(-\\d+)?$`);
+/** @param {string} id */
+const senderOf = (id) => new RegExp(`^${id.replace(/\./g, '\\.')}(-\\d+)?$`);
+const HOME_SENDER = senderOf(HOME_ID);
+const PACKAGE_SENDER = senderOf(PACKAGE_ID);
 
 /** @param {string | undefined} sender */
 const isHome = (sender) => HOME_SENDER.test(String(sender || ''));
+
+// The setup screen: the same app run from its package, before it becomes the home screen.
+/** @param {string | undefined} sender */
+const isPackage = (sender) => PACKAGE_SENDER.test(String(sender || ''));
 
 // The real path, symlinks resolved; throws unless it is inside attached storage.
 /**
@@ -35,4 +42,4 @@ function historyFile(root, storage = STORAGE_ROOT) {
   return file;
 }
 
-module.exports = { isHome, insideStorage, historyFile };
+module.exports = { isHome, isPackage, insideStorage, historyFile };

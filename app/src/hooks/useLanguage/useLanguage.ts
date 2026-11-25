@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
-import { createI18n, systemLanguage, uiLanguage } from '../../../../lib/i18n/i18n';
-import type { I18n } from '../../../../lib/i18n/types';
+import { createI18n, systemLanguage, uiLanguage } from '../../lib/i18n/i18n';
+import type { I18n } from '../../lib/i18n/types';
 
 // The chosen language, else the TV menu language, else English; follows the TV when its language changes.
 export function useLanguage(setting: string | null): I18n {

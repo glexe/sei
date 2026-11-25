@@ -6,6 +6,9 @@ const path = require('path');
 const Service = require('webos-service');
 const {
   SERVICE_ID,
+  HOME_ID,
+  APP_DIR,
+  PACKAGE_DIR,
   APP_MANAGER,
   APP_INSTALLER,
   BRAND_LOGOS,
@@ -15,18 +18,21 @@ const {
   LOG_FILE,
   IMAGE_FIELDS,
   IDLE_MS,
+  QUIT_MS,
   STORAGE_ROOT,
   MAX_ENTRIES,
   HIDDEN,
   STATE_FILE,
 } = require('./constants');
 const { version } = require('./package.json');
-const { historyFile, insideStorage, isHome } = require('./access');
+const { historyFile, insideStorage, isHome, isPackage } = require('./access');
+const { installHome } = require('./install');
 
 // Response shapes are the web app's own types, so both sides check against one contract.
 /** @typedef {import('../app/src/lib/apps/types').LaunchPoint} LaunchPoint */
 /** @typedef {import('../app/src/lib/files/types').FileEntry} FileEntry */
 /** @typedef {import('../app/src/lib/files/types').Storage} Storage */
+/** @typedef {import('../app/src/lib/setup/types').HomeState} HomeState */
 /** @typedef {import('webos-service').Message} Message */
 /** @typedef {Record<string, any>} Payload */
 
@@ -89,14 +95,19 @@ function fail(message, err) {
 /**
  * @param {string} method
  * @param {(message: Message) => void} handler
+ * @param {(sender: string | undefined) => boolean} [allowed]
  */
-function register(method, handler) {
+function register(method, handler, allowed = isHome) {
   service.register(method, (message) => {
-    if (isHome(message.sender)) return handler(message);
+    if (allowed(message.sender)) return handler(message);
     log('rejected caller', message.sender || '', method);
     fail(message, 'not allowed');
   });
 }
+
+// The few methods its setup screen needs too.
+/** @param {string | undefined} sender */
+const isHomeOrPackage = (sender) => isHome(sender) || isPackage(sender);
 
 // mtime of each icon already copied, so repeated listApps skip the copy and the second stat.
 /** @type {Map<string, number>} */
@@ -214,10 +225,50 @@ function readObject(file) {
 // Without Homebrew's elevation the service runs sandboxed and can't see /var/lib/sei at all.
 const isRoot = () => typeof process.getuid === 'function' && process.getuid() === 0;
 
-// For the About screen: which version answers, and whether it was elevated.
-register('getInfo', (message) => {
-  message.respond({ returnValue: true, version, root: isRoot() });
-});
+// webOS finds a new home only at boot, so right after installing the old one still runs.
+/** @returns {Promise<HomeState>} */
+function homeState() {
+  if (!fs.existsSync(path.join(APP_DIR, 'appinfo.json'))) return Promise.resolve('none');
+  return call(APP_MANAGER + '/getAppInfo', { id: HOME_ID }).then(
+    ({ appInfo }) => (appInfo && appInfo.folderPath === APP_DIR ? 'active' : 'pending'),
+    () => 'pending',
+  );
+}
+
+register(
+  'getInfo',
+  (message) => {
+    homeState().then((home) =>
+      message.respond({ returnValue: true, version, root: isRoot(), home }),
+    );
+  },
+  isHomeOrPackage,
+);
+
+register(
+  'install',
+  (message) => {
+    keepAlive();
+    try {
+      installHome(PACKAGE_DIR, APP_DIR);
+    } catch (err) {
+      log('install failed', err instanceof Error ? err.message : String(err));
+      return fail(message, err);
+    }
+    homeState().then((home) => message.respond({ returnValue: true, version, home }));
+  },
+  isHomeOrPackage,
+);
+
+// Elevation applies to the next process only.
+register(
+  'quit',
+  (message) => {
+    message.respond({ returnValue: true });
+    setTimeout(() => process.exit(0), QUIT_MS);
+  },
+  isHomeOrPackage,
+);
 
 register('launch', (message) => {
   const { id, params } = message.payload || {};

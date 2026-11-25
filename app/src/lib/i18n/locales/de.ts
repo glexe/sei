@@ -18,6 +18,20 @@ export const de: Locale = {
       move: 'Bewegen',
       moveHint: 'Mit den Pfeiltasten bewegen, dann OK drücken.',
     },
+    setup: {
+      caption:
+        'Sei wird der Startbildschirm dieses Fernsehers. LG Home bleibt auf dem Fernseher und kehrt zurück, wenn du Sei deinstallierst.',
+      install: 'Installieren',
+      installing: 'Wird installiert…',
+      restartCaption: 'Sei ist installiert. Starte den Fernseher neu, um es zu verwenden.',
+      restart: 'Fernseher neu starten',
+      restarting: 'Neustart…',
+      noRoot: 'Sei benötigt Homebrew Channel 0.8.0 oder neuer mit Root-Zugriff.',
+      failed: 'Installation fehlgeschlagen: {error}',
+      uninstalledTitle: 'Sei wurde deinstalliert',
+      uninstalledText: 'Starte den Fernseher neu, um LG Home zurückzubekommen.',
+      cantRemove: 'Sei konnte nicht entfernt werden: {error}',
+    },
     settings: {
       title: 'Einstellungen',
       caption: 'Passe deinen Home-Bildschirm an.',

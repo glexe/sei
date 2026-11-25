@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'preact/hooks';
 import { version } from '../../../../package.json';
-import icon from '../../assets/icon.png';
 import { useI18n } from '../../hooks/useI18n/useI18n';
 import { fetchIp, fetchService, fetchTv } from '../../lib/about/about';
 import type { ServiceStatus, TvInfo } from '../../lib/about/types';
 import { ListScreen } from '../../primitives/ListScreen/ListScreen';
 import { List } from '../../primitives/List/List';
-import styles from './About.module.css';
+import { AppIcon } from '../AppIcon/AppIcon';
 import type { Props } from './types';
 
 export function About({ focus, onFocus, onBack }: Props) {
@@ -36,11 +35,7 @@ export function About({ focus, onFocus, onBack }: Props) {
   ];
 
   return (
-    <ListScreen
-      title={t('about.title')}
-      preview={<img class={styles.icon} src={icon} alt="" />}
-      caption="Sei"
-    >
+    <ListScreen title={t('about.title')} preview={<AppIcon />} caption="Sei">
       <List rows={rows} focus={focus ?? 0} onFocus={onFocus} onSelect={() => {}} onBack={onBack} />
     </ListScreen>
   );

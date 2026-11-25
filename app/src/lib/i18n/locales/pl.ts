@@ -18,6 +18,20 @@ export const pl: Locale = {
       move: 'Przenieś',
       moveHint: 'Przesuń strzałkami i naciśnij OK.',
     },
+    setup: {
+      caption:
+        'Sei stanie się ekranem głównym tego telewizora. LG Home pozostaje w telewizorze i wraca po odinstalowaniu Sei.',
+      install: 'Zainstaluj',
+      installing: 'Instalowanie…',
+      restartCaption: 'Sei jest zainstalowane. Uruchom telewizor ponownie, aby go użyć.',
+      restart: 'Uruchom ponownie',
+      restarting: 'Ponowne uruchamianie…',
+      noRoot: 'Sei wymaga Homebrew Channel 0.8.0 lub nowszego z dostępem root.',
+      failed: 'Nie udało się zainstalować: {error}',
+      uninstalledTitle: 'Sei zostało odinstalowane',
+      uninstalledText: 'Uruchom telewizor ponownie, aby przywrócić LG Home.',
+      cantRemove: 'Nie udało się usunąć Sei: {error}',
+    },
     settings: {
       title: 'Ustawienia',
       caption: 'Dostosuj ekran główny.',

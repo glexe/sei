@@ -18,6 +18,20 @@ export const cs: Locale = {
       move: 'Přesunout',
       moveHint: 'Přesuňte šipkami a stiskněte OK.',
     },
+    setup: {
+      caption:
+        'Sei se stane domovskou obrazovkou této televize. LG Home v televizi zůstane a vrátí se po odinstalování Sei.',
+      install: 'Instalovat',
+      installing: 'Instalace…',
+      restartCaption: 'Sei je nainstalováno. Spustí se po restartu televize.',
+      restart: 'Restartovat televizi',
+      restarting: 'Restartování…',
+      noRoot: 'Je potřeba Homebrew Channel 0.8.0 nebo novější s přístupem root.',
+      failed: 'Instalace se nezdařila: {error}',
+      uninstalledTitle: 'Sei bylo odinstalováno',
+      uninstalledText: 'Restartujte televizi, aby se vrátil LG Home.',
+      cantRemove: 'Sei se nepodařilo odebrat: {error}',
+    },
     settings: {
       title: 'Nastavení',
       caption: 'Přizpůsobte si domovskou obrazovku.',

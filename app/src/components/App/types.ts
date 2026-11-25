@@ -4,5 +4,6 @@ export type Mode =
   | { kind: 'menu'; id: string }
   | { kind: 'moving'; id: string }
   | { kind: 'confirm'; id: string }
+  | { kind: 'uninstalled' }
   | { kind: 'settings' }
   | { kind: 'files' };

@@ -18,6 +18,20 @@ export const ko: Locale = {
       move: '이동',
       moveHint: '화살표로 이동한 다음 OK를 누르세요.',
     },
+    setup: {
+      caption:
+        'Sei가 이 TV의 홈 화면이 됩니다. LG Home은 TV에 남아 있으며 Sei를 제거하면 다시 돌아옵니다.',
+      install: '설치',
+      installing: '설치 중…',
+      restartCaption: 'Sei가 설치되었습니다. 시작하려면 TV를 재시작하세요.',
+      restart: 'TV 재시작',
+      restarting: '재시작 중…',
+      noRoot: '루트 권한이 있는 Homebrew Channel 0.8.0 이상이 필요합니다.',
+      failed: '설치할 수 없음: {error}',
+      uninstalledTitle: 'Sei가 제거되었습니다',
+      uninstalledText: 'LG Home으로 돌아가려면 TV를 재시작하세요.',
+      cantRemove: 'Sei를 제거할 수 없음: {error}',
+    },
     settings: {
       title: '설정',
       caption: '홈 화면을 원하는 대로 꾸며 보세요.',
